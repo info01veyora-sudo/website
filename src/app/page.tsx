@@ -132,7 +132,7 @@ export default function Home() {
             Tell us about your business and what you want to improve.
           </p>
           <a
-            href="mailto:info@veyora.com"
+            href="mailto:info01veyora@gmail.com"
             className="mt-9 inline-block rounded-full bg-white px-7 py-4 font-semibold text-[#152337]"
           >
             Contact Veyora →
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       <footer className="bg-[#101c2c] px-6 py-8 text-center text-sm text-slate-400">
-        © {new Date().getFullYear()} Veyora Digital Studio. All rights reserved.
+        © 2026 Veyora Digital Studio. All rights reserved.
       </footer>
     </main>
   );
