@@ -2,25 +2,34 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #101828;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
-}
+  --font-heading: var(--font-manrope);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Veyora brand colour palette */
+  --color-primary: #101828;
+  --color-secondary: #ffffff;
+  --color-brand-background: #f3f5f8;
+  --color-accent: #356ae6;
+  --color-supporting: #8b96a8;
+  --color-dark-surface: #0b1220;
+  --color-border: #e5e9f0;
+  --color-muted: #667085;
 }
 
 body {
-  background: var(--background);
+  background: var(--color-brand-background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-manrope);
 }
