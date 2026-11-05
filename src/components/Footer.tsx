@@ -1,26 +1,26 @@
 import Link from "next/link";
 
-const socialLinks = [
-  { href: "#", label: "Twitter", ariaLabel: "Twitter" },
-  { href: "#", label: "LinkedIn", ariaLabel: "LinkedIn" },
-  { href: "#", label: "Instagram", ariaLabel: "Instagram" },
-  { href: "#", label: "YouTube", ariaLabel: "YouTube" },
-];
-
 export default function Footer() {
   return (
-    <footer className="border-t border-border/50 bg-[#0B1220] py-16">
+    <footer className="border-t border-border bg-footer pt-16 pb-8">
       <div className="mx-auto max-w-[1320px] px-6">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div className="md:col-span-1">
+        {/* Soft blue glow behind footer content */}
+        <div
+          className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-glow blur-[100px] pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 grid gap-12 md:grid-cols-3">
+          {/* Column 1: Brand */}
+          <div>
             <Link
               href="/"
               className="flex items-center gap-2 mb-4"
               aria-label="Veyora Digital Studio home"
             >
               <svg
-                width="28"
-                height="28"
+                width="32"
+                height="32"
                 viewBox="0 0 32 32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -28,57 +28,60 @@ export default function Footer() {
               >
                 <path
                   d="M8 4L16 12L24 4M8 28L16 20L24 28"
-                  stroke="#356AE6"
-                  strokeWidth="2"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className="text-foreground"
                 />
                 <path
                   d="M16 12V20"
-                  stroke="#356AE6"
-                  strokeWidth="2"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
+                  className="text-accent-text"
                 />
               </svg>
               <div>
-                <div className="text-sm font-bold font-heading tracking-tight text-white">
+                <div className="text-sm font-bold font-heading tracking-tight text-foreground">
                   Veyora
                 </div>
-                <div className="text-[10px] uppercase tracking-wider text-supporting">
+                <div className="text-[10px] uppercase tracking-wider text-muted">
                   Digital Studio
                 </div>
               </div>
             </Link>
-            <p className="text-sm leading-7 text-supporting">
+            <p className="text-sm leading-7 text-body">
               Crafting digital experiences for a smarter tomorrow.
             </p>
           </div>
 
+          {/* Column 2: Navigate links */}
           <div>
             <h3 className="mb-4 text-xs font-semibold font-heading uppercase tracking-wider text-muted">
-              Company
+              Navigate
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link
+                  href="#"
+                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="#services"
-                  className="text-sm text-supporting hover:text-white transition-colors duration-200"
+                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
                 >
                   Services
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#portfolio"
-                  className="text-sm text-supporting hover:text-white transition-colors duration-200"
-                >
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="#about"
-                  className="text-sm text-supporting hover:text-white transition-colors duration-200"
+                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
                 >
                   About
                 </Link>
@@ -86,7 +89,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#contact"
-                  className="text-sm text-supporting hover:text-white transition-colors duration-200"
+                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
                 >
                   Contact
                 </Link>
@@ -94,58 +97,28 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Column 3: Contact info */}
           <div>
             <h3 className="mb-4 text-xs font-semibold font-heading uppercase tracking-wider text-muted">
               Contact
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-sm text-supporting">
+              <li className="flex items-center gap-3 text-sm text-body">
                 <span aria-hidden="true">&#9993;</span>
                 info01veyora@gmail.com
               </li>
-              <li className="flex items-center gap-3 text-sm text-supporting">
+              <li className="flex items-center gap-3 text-sm text-body">
                 <span aria-hidden="true">&#128205;</span>
                 Kathmandu, Nepal
               </li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="mb-4 text-xs font-semibold font-heading uppercase tracking-wider text-muted">
-              Follow
-            </h3>
-            <div className="flex gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-supporting hover:text-white hover:border-white/30 transition-colors duration-200"
-                  aria-label={link.ariaLabel}
-                >
-                  <span aria-hidden="true">
-                    {link.label === "Twitter"
-                      ? "&#x1F426;"
-                      : link.label === "LinkedIn"
-                        ? "&#x1F4DC;"
-                        : link.label === "Instagram"
-                          ? "&#x1F4F2;"
-                          : "&#x1F4FA;"}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-supporting">
+        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-body">
           <p>
             &copy; 2026 Veyora Digital Studio. All rights reserved.
           </p>
-          <div className="flex items-center gap-1.5">
-            <span aria-hidden="true">&#10084;&#65039;</span>
-            <span>Built with</span>
-            <span className="text-white">by Veyora</span>
-          </div>
         </div>
       </div>
     </footer>

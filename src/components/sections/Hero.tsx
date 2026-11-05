@@ -6,17 +6,23 @@ export default function Hero() {
       id="hero"
       className="relative mx-auto max-w-[1320px] px-6 py-20 md:py-36 overflow-hidden"
     >
+      {/* Dot grid background fading left */}
+      <div
+        className="absolute inset-0 bg-dot-grid dot-grid-fade-left pointer-events-none"
+        aria-hidden="true"
+      />
+
       {/* Soft curved blue background shapes */}
       <div
-        className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] pointer-events-none"
+        className="absolute top-[-15%] left-[-10%] w-[600px] h-[600px] rounded-full bg-glow blur-[120px] pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute top-[-10%] right-[-15%] w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] pointer-events-none"
+        className="absolute top-[-5%] right-[-15%] w-[500px] h-[500px] rounded-full bg-glow blur-[100px] pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-[-20%] left-[20%] w-[400px] h-[400px] bg-accent/15 rounded-full blur-[80px] pointer-events-none"
+        className="absolute bottom-[-15%] left-[20%] w-[400px] h-[400px] rounded-full bg-glow blur-[80px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -24,10 +30,10 @@ export default function Hero() {
         <div className="lg:pr-8">
           <div className="flex items-center gap-2 mb-8">
             <span
-              className="relative z-10 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/20"
+              className="relative z-10 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/10"
               aria-hidden="true"
             >
-              <span className="text-[10px] text-accent">•</span>
+              <span className="text-[10px] text-accent-text">•</span>
             </span>
             <p className="relative z-10 text-[11px] font-medium font-heading uppercase tracking-wider text-muted">
               Digital Studio
@@ -35,13 +41,15 @@ export default function Hero() {
           </div>
 
           <h1
-            className="mb-6 relative z-10 text-4xl font-heading font-bold leading-[1.15] tracking-tight text-primary md:text-5xl lg:text-6xl"
+            className="mb-6 relative z-10 text-4xl font-heading font-bold leading-[1.15] tracking-tight text-foreground md:text-5xl lg:text-6xl"
           >
             Building Digital Experiences{" "}
-            <span className="text-accent">That Last</span>
+            <span className="relative z-10 text-accent-text bg-gradient-to-r from-accent via-accent/90 to-[#6E8CFF] bg-clip-text text-transparent">
+              That Last
+            </span>
           </h1>
 
-          <p className="mb-8 max-w-md text-lg leading-relaxed text-muted relative z-10">
+          <p className="mb-8 max-w-md text-lg leading-relaxed text-body relative z-10">
             We design, develop and innovate digital solutions that help your
             business grow in the modern world.
           </p>
@@ -49,24 +57,33 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="mailto:info01veyora@gmail.com"
-              className="relative z-10 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="relative z-10 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card"
             >
               Contact Us &rarr;
             </Link>
             <Link
               href="#services"
-              className="relative z-10 rounded-full border border-border px-7 py-3.5 text-sm font-medium text-primary transition-colors duration-200 hover:bg-brand-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="relative z-10 rounded-full border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-colors duration-200 hover:bg-card-alt focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card"
             >
-              Explore Our Work
+              Our Services
             </Link>
+          </div>
+
+          <div className="mt-8 flex items-center gap-2 text-[11px] font-medium font-heading uppercase tracking-wider text-muted relative z-10">
+            <span className="w-px h-3 bg-muted" aria-hidden="true" />
+            <span>Design</span>
+            <span className="w-px h-3 bg-muted" aria-hidden="true" />
+            <span>Develop</span>
+            <span className="w-px h-3 bg-muted" aria-hidden="true" />
+            <span>Innovate</span>
           </div>
         </div>
 
         <div className="relative flex items-end justify-center">
-          {/* Laptop mockup (CSS-based) */}
-          <div className="relative z-10">
+          {/* Tilted laptop mockup (CSS/SVG-based) */}
+          <div className="relative z-10 transform -rotate-1">
             <div
-              className="relative w-[320px] h-[200px] bg-gradient-to-b from-[#0B1220] to-[#101828] rounded-2xl shadow-2xl border border-white/10 overflow-hidden"
+              className="relative w-[320px] h-[200px] bg-gradient-to-b from-[#0B1220] to-[#101828] rounded-[1.5rem] shadow-2xl border border-white/10 overflow-hidden"
             >
               {/* Screen content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
@@ -80,21 +97,23 @@ export default function Hero() {
                   >
                     <path
                       d="M8 4L16 12L24 4M8 28L16 20L24 28"
-                      stroke="#356AE6"
+                      stroke="currentColor"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      className="text-accent-text"
                     />
                     <path
                       d="M16 12V20"
-                      stroke="#356AE6"
+                      stroke="currentColor"
                       strokeWidth="2"
                       strokeLinecap="round"
+                      className="text-accent-text"
                     />
                   </svg>
                 </div>
                 <div className="text-center">
-                  <div className="text-xs font-bold font-heading uppercase tracking-wider text-accent">
+                  <div className="text-xs font-bold font-heading uppercase tracking-wider text-accent-text">
                     Veyora
                   </div>
                   <div className="text-[10px] text-muted">
@@ -127,7 +146,7 @@ export default function Hero() {
 
           {/* Floating "Innovate / Create / Grow" card */}
           <div
-            className="absolute -right-6 -bottom-6 z-20 rounded-2xl bg-white px-5 py-4 shadow-xl border border-white/50"
+            className="absolute -right-6 -bottom-6 z-20 rounded-[1.5rem] bg-card px-5 py-4 shadow-shadow border border-white/20"
             aria-hidden="true"
           >
             <div className="flex items-center gap-1.5">
@@ -140,12 +159,12 @@ export default function Hero() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-accent"
+                className="text-accent-text"
                 aria-hidden="true"
               >
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
               </svg>
-              <div className="text-xs font-medium font-heading text-primary">
+              <div className="text-xs font-medium font-heading text-foreground">
                 Innovate
               </div>
             </div>
@@ -159,12 +178,12 @@ export default function Hero() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-accent"
+                className="text-accent-text"
                 aria-hidden="true"
               >
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
               </svg>
-              <div className="text-xs font-medium font-heading text-primary">
+              <div className="text-xs font-medium font-heading text-foreground">
                 Create
               </div>
             </div>
@@ -178,12 +197,12 @@ export default function Hero() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-accent"
+                className="text-accent-text"
                 aria-hidden="true"
               >
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
               </svg>
-              <div className="text-xs font-medium font-heading text-primary">
+              <div className="text-xs font-medium font-heading text-foreground">
                 Grow
               </div>
             </div>
@@ -191,7 +210,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Soft curved wave at bottom edge */}
+      {/* Soft curved wave at bottom edge into next section */}
       <svg
         className="relative z-0 w-full h-32 md:h-48"
         viewBox="0 0 1440 320"
@@ -201,7 +220,7 @@ export default function Hero() {
       >
         <path
           d="M0 192C144 224 288 256 432 256S720 224 864 224S1008 256 1152 256S1296 256 1440 224L1440 320L0 320Z"
-          fill="white"
+          fill="var(--color-background)"
         />
       </svg>
     </section>

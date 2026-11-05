@@ -28,7 +28,24 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${manrope.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      {/* Inline theme script: runs before first paint to prevent flash */}
+      <script
+        id="theme-init"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(){
+              try {
+                var stored = localStorage.getItem('veyora-theme');
+                var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = stored || (systemDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+              } catch(e) {}
+            })();
+          `,
+        }}
+      />
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
