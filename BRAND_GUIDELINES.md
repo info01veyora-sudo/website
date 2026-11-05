@@ -38,19 +38,17 @@ All colours are defined as CSS variables (semantic tokens) in `globals.css` and 
 | Token | Hex | Usage |
 |-------|-----|-------|
 | `--background` / `--color-background` | `#FFFFFF` | Page background |
-| `--foreground` / `--color-foreground` | `#101828` | Headings, primary text |
+| `--color-navy` | `#101828` | Headings, primary text |
+| `--color-deep-navy` | `#0B1220` | Dark surfaces |
 | `--color-accent` | `#2F5BFF` | Primary buttons, filled interactive elements |
-| `--color-accent-hover` | `#2447D6` | Button hover state |
-| `--color-accent-text` | `#2F5BFF` | Links, accent text, SVG strokes |
-| `--color-card` | `#FFFFFF` | Card surfaces |
-| `--color-card-alt` | `#F3F5F8` | Alt section backgrounds, subtle tiles |
+| `--color-accent-light` | `#5B7FFF` | Lighter blue for dark-mode text/links |
+| `--color-background-alt` | `#F3F5F8` | Alt section backgrounds |
 | `--color-border` | `#E5E9F0` | Card borders, dividers, input borders |
-| `--color-border-hover` | `#C7CDD6` | Border hover state |
-| `--color-muted` | `#4B5565` | De-emphasised text, labels |
-| `--color-body` | `#4B5565` | Body copy, descriptions (no lighter than #4B5565) |
+| `--color-tint` | `#EBF0FF` | Subtle tinted backgrounds |
+| `--color-muted` | `#4B5565` | De-emphasised text (never lighter — contrast) |
 | `--color-footer` | `#0B1220` | Footer background |
 | `--color-shadow` | `rgba(16,24,40,0.08)` | Soft shadows |
-| `--color-glow` | `rgba(47,91,255,0.15)` | Soft blue glow shapes |
+| `--color-glow` | `rgba(47,91,255,0.15)` | Soft blue glow |
 | `--color-ring` | `#2F5BFF` | Focus rings |
 
 ### Dark Theme (`data-theme="dark"`)
@@ -58,28 +56,29 @@ All colours are defined as CSS variables (semantic tokens) in `globals.css` and 
 | Token | Hex | Usage |
 |-------|-----|-------|
 | `--background` / `--color-background` | `#0B1220` | Page background |
-| `--foreground` / `--color-foreground` | `#F2F4F7` | Headings, primary text |
-| `--color-accent` | `#2F5BFF` | Primary buttons (white text on top) |
-| `--color-accent-hover` | `#5B7FFF` | Button hover state |
-| `--color-accent-text` | `#5B7FFF` | Links, accent text, SVG strokes (lighter blue for contrast) |
-| `--color-card` | `#131C31` | Card surfaces |
-| `--color-card-alt` | `#0F1830` | Alt section backgrounds, subtle tiles |
+| `--color-navy` | `#F2F4F7` | Headings, primary text |
+| `--color-deep-navy` | `#070C18` | Footer background (deeper than page) |
+| `--color-accent` | `#2F5BFF` | Primary buttons |
+| `--color-accent-light` | `#5B7FFF` | Links, accent text, SVG strokes |
+| `--color-background-alt` | `#0F1830` | Alt section backgrounds |
 | `--color-border` | `#22304F` | Card borders, dividers, input borders |
-| `--color-border-hover` | `#3A4A73` | Border hover state |
-| `--color-muted` | `#A9B4CA` | De-emphasised text, labels |
-| `--color-body` | `#A9B4CA` | Body copy, descriptions (no darker than #A9B4CA) |
-| `--color-footer` | `#070C18` | Footer background (deeper than page) |
+| `--color-tint` | `#1A2640` | Subtle tinted backgrounds |
+| `--color-muted` | `#A9B4CA` | De-emphasised text (never darker — contrast) |
+| `--color-footer` | `#070C18` | Footer background |
 | `--color-shadow` | `rgba(0,0,0,0.4)` | Dark mode: use borders instead of heavy shadows |
-| `--color-glow` | `rgba(91,127,255,0.12)` | Soft blue glow shapes |
+| `--color-glow` | `rgba(91,127,255,0.12)` | Soft blue glow |
 | `--color-ring` | `#2F5BFF` | Focus rings |
+
+### Gradient Text
+
+- `linear-gradient(100deg, #2F5BFF, #6E8CFF)` — used for the last word(s) of section headings
 
 ### WCAG AA Contrast
 
 - Text: 4.5:1 minimum against background
 - Large text (18px+ bold or 24px+): 3:1 minimum
 - UI components (buttons, input borders): 3:1 minimum
-- Placeholder text: meets contrast requirements in both themes
-- Verified: accent text `#5B7FFF` on dark background `#0B1220` passes AA for large text
+- `--color-muted` (`#4B5565` light / `#A9B4CA` dark) never goes lighter/darker than these values to preserve contrast
 
 ---
 
@@ -87,31 +86,17 @@ All colours are defined as CSS variables (semantic tokens) in `globals.css` and 
 
 | Element | Font | Weights |
 |---------|------|---------|
-| Headings | Manrope | 500, 600, 700, 800 |
+| Headings | Manrope | 500, 700, 800 |
 | Body | Inter | 400, 500 |
-| Buttons | Inter Medium | 500 |
+| Buttons | Inter Medium | 500, 600 |
 
-### Typographic hierarchy
+### Typographic rules
 
-| Level | Font | Size | Weight | Line height | Letter spacing | Use |
-|-------|------|------|--------|-------------|----------------|-----|
-| H1 (Hero) | Manrope | 56px (desktop), 40px (mobile) | 800 | 1.15 | -0.02em | Hero headline |
-| H2 (Section) | Manrope | 32px | 700 | 1.2 | -0.02em | Section headings |
-| H3 (Card title) | Manrope | 20px | 600 | 1.4 | 0 | Card/service titles |
-| H4 (Kicker / eyebrow) | Manrope | 11px | 600 | 1.4 | 0.15em | Section labels, uppercase |
-| Body | Inter | 16px | 400 | 1.7 | 0 | Paragraphs, descriptions |
-| Body small | Inter | 14px | 400 | 1.6 | 0 | Captions, fine print |
-| Button | Inter Medium | 15px | 500 | 1.5 | 0 | CTA buttons |
-| Link | Inter | 15px | 500 | 1.5 | 0 | Navigation, inline links |
-
-### Rules
-
-- Headings use tight tracking (`-0.02em`) for a premium feel.
-- Body uses relaxed line height (`1.7`) for readability.
-- Kickers/eyebrows are uppercase with wide tracking (`0.15em`).
-- Section headings: small label with side lines, then heading whose last word(s) are accent blue (gradient from `#2F5BFF` to `#6E8CFF` permitted).
-- Never stretch or distort type.
-- Manrope and Inter loaded via `next/font/google`.
+- **Headings:** letter-spacing `-0.025em`, line-height `1.08`, tight tracking for premium feel
+- **Body:** relaxed line-height `1.7` for readability
+- **Labels/kickers:** uppercase, tracking `0.15em`, `11px`
+- **Never stretch or distort type.**
+- Manrope and Inter loaded via `next/font/google` (self-hosting, automatic optimization).
 
 ---
 
@@ -119,10 +104,10 @@ All colours are defined as CSS variables (semantic tokens) in `globals.css` and 
 
 ### Logo mark
 
-- No verified image logo exists in the repository. The "V" mark is recreated as an inline SVG (see components).
-- The V mark stays blue (`#2F5BFF` light / `#5B7FFF` dark) in both themes.
-- The "Veyora" wordmark switches colour: `#101828` light / `#FFFFFF` dark.
-- "DIGITAL STUDIO" subtitle switches: `#4B5565` light / `#A9B4CA` dark.
+- No verified image logo exists in the repository. The "V" mark is an inline SVG (`src/components/Logo.tsx`).
+- The V mark stays blue (`--color-accent-text`) in both themes.
+- The "Veyora" wordmark switches colour: `--color-foreground` per theme.
+- "DIGITAL STUDIO" subtitle switches: `--color-muted` per theme.
 
 ### Clear space
 
@@ -132,7 +117,6 @@ All colours are defined as CSS variables (semantic tokens) in `globals.css` and 
 ### Sizing
 
 - Navigation: `text-sm` / `font-bold` / `tracking-tight`.
-- Footer: `text-sm` / `font-bold` / `tracking-tight`.
 - Never use the logo at sizes smaller than `text-sm`.
 
 ---
@@ -141,31 +125,33 @@ All colours are defined as CSS variables (semantic tokens) in `globals.css` and 
 
 ### Primary (filled) button
 
-- Background: `--color-accent` (`#2F5BFF`)
-- Hover: `--color-accent-hover` (`#2447D6` light / `#5B7FFF` dark)
+- Background: vertical gradient `#4170FF` → `#2F5BFF`
 - Text: `#FFFFFF` (white)
 - Font: Inter Medium, `15px`, `500`
 - Padding: `px-7 py-3.5`
-- Radius: `rounded-full`
-- Transition: `transition-colors duration-200`
+- Radius: `rounded-full` (999px)
+- Shadow: soft blue glow (`--color-glow`)
+- Hover: lifts 2px (`-translate-y-1`), glow intensifies
+- Arrow: nudges right on hover
+- Transition: `transition-all duration-200`
 - Focus: visible focus ring (`--color-ring`)
 
 ### Secondary (outline) button
 
-- Background: transparent
-- Border: `1px --color-border`
-- Text: `--color-foreground`
+- Background: translucent white (`bg-white/60`)
+- Border: `1.5px` `#cdd8f5` (light) / theme-aware (dark)
+- Text: `--color-accent` (blue)
 - Font: Inter Medium, `15px`, `500`
 - Padding: `px-7 py-3.5`
-- Radius: `rounded-full`
-- Hover: `--color-card-alt` background
-- Transition: `transition-colors duration-200`
+- Radius: `rounded-full` (999px)
+- Hover: subtle tint background
+- Transition: `transition-all duration-200`
 - Focus: visible focus ring
 
-### General rules
+### General button rules
 
-- All buttons use `transition-colors duration-200 ease-in-out`.
-- No glowing, no gradients on buttons, no bounce animations.
+- All buttons use `transition-all duration-200`.
+- No glowing beyond the specified soft blue glow, no gradients on outline buttons, no bounce animations.
 - Disabled state: opacity `50%`, `cursor: not-allowed`.
 - Always include a visible focus state (`focus-visible:ring`).
 
@@ -173,18 +159,14 @@ All colours are defined as CSS variables (semantic tokens) in `globals.css` and 
 
 ## 7. Spacing System
 
-Use a consistent spacing scale based on Tailwind's default spacing (multiples of 4px / 0.25rem).
-
 | Token | Value | Use |
 |-------|-------|-----|
-| Section padding (vertical) | `py-24` (desktop), `py-16` (mobile) | Page sections (~96px vertical on desktop) |
-| Container max-width | `max-w-[1320px]` | Page content container |
-| Container horizontal padding | `px-6` | Page edges |
-| Grid gap | `gap-6` (mobile), `gap-8` / `gap-16` (desktop) | Card grids |
-| Card padding | `p-8` (desktop `p-12` for contact form) | Service/project cards |
-| Navbar padding | `px-6 py-3` | Navigation bar |
-| Section gap (label to heading) | `mb-3` | Label to heading |
-| Section gap (heading to body) | `mb-6` | Heading to paragraph |
+| Section padding (vertical) | `96px` (desktop), `68px` (mobile) | Page sections |
+| Container max-width | `1200px` | Page content container |
+| Container horizontal padding | `28px` (desktop), `18px` (mobile) | Page edges |
+| Section gap (label to heading) | `3 units` (~12px) | Label to heading |
+| Section gap (heading to body) | `6 units` (~24px) | Heading to paragraph |
+| Grid gap | `6 units` (mobile), `8 units` (desktop) | Card grids |
 
 ### Rules
 
@@ -201,25 +183,24 @@ Use a consistent spacing scale based on Tailwind's default spacing (multiples of
 
 - Background: `--color-card` (switches per theme)
 - Border: `1px --color-border`
-- Radius: `rounded-[1.5rem]` (20-24px)
-- Padding: `p-8`
-- Shadow: `--color-shadow` (light mode only; dark mode uses borders)
-- Hover: subtle lift (`-translate-y-1`) and border colour shift (`--color-border-hover`)
+- Radius: `24px` for service cards; `20-24px` for About and form cards; `36px` for contact panel
+- Shadow: `--color-shadow` (light mode); dark mode uses borders and subtle glows
+- Hover: subtle lift and border colour shift (`--color-border-hover`)
 - Transition: `transition-all duration-200`
-- No heavy drop shadows in dark mode; use borders and subtle glows instead
 
 ### Sections
 
-- Container: `mx-auto max-w-[1320px] px-6`
-- Background: `--color-background` or `--color-card-alt` alternating for rhythm
+- Container: `mx-auto max-w-[1200px] px-28` (desktop), `px-18` (mobile)
+- Background: `--color-background` or `--color-background-alt` alternating for rhythm
 - Text: `--color-foreground` on light; `--color-foreground` on dark
 
 ### Layout
 
 - Single-column centred content for reading sections.
 - 3-column grid for services on desktop, 1-column on mobile.
-- 2-column grid for hero on desktop, stacked on mobile.
-- 2-column grid for footer on tablet, 3-column on desktop.
+- Hero: 2-column grid on desktop, stacked on mobile.
+- Footer: 3 columns on desktop, 2 columns on tablet, 1 column on mobile.
+- Floating cards hidden on mobile if they crowd the layout.
 
 ---
 
@@ -264,10 +245,8 @@ Use a consistent spacing scale based on Tailwind's default spacing (multiples of
 - About: 2-column grid on desktop, 1 column on mobile.
 - Contact: 2-column grid on desktop, 1 column on mobile.
 - Footer: 3 columns on desktop, 2 columns on tablet, 1 column on mobile.
-- Floating cards hidden on mobile if they crowd the layout.
-- Typography scales down on mobile (H1 `40px`, H2 `28px`, etc.).
 - Touch targets minimum `44px` × `44px`.
-- No horizontal overflow; content contained within `max-w-[1320px]`.
+- No horizontal overflow; content contained within `max-w-[1200px]`.
 - Tested on: mobile, tablet, laptop, desktop.
 
 ---
@@ -289,4 +268,5 @@ Use a consistent spacing scale based on Tailwind's default spacing (multiples of
 - Router: Next.js App Router (`src/app/`).
 - No new UI libraries; no `next-themes` package installed. Theme switching implemented manually with CSS variables + `data-theme` + `localStorage`.
 - TypeScript strict mode enabled; all components typed.
+- Reusable components: `Logo`, `Button`, `SectionHeading` in `src/components/`.
 - Portfolio section files retained in repo but unlinked from homepage, navbar, and footer (per product decision). Real project data not available in repo.

@@ -1,125 +1,21 @@
-import Link from "next/link";
-
-export default function Footer() {
+export function Footer() {
   return (
-    <footer className="border-t border-border bg-footer pt-16 pb-8">
-      <div className="mx-auto max-w-[1320px] px-6">
-        {/* Soft blue glow behind footer content */}
-        <div
-          className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-glow blur-[100px] pointer-events-none"
-          aria-hidden="true"
-        />
-
-        <div className="relative z-10 grid gap-12 md:grid-cols-3">
-          {/* Column 1: Brand */}
+    <footer>
+      <div className="wrap">
+        <div className="ft">
           <div>
-            <Link
-              href="/"
-              className="flex items-center gap-2 mb-4"
-              aria-label="Veyora Digital Studio home"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M8 4L16 12L24 4M8 28L16 20L24 28"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-foreground"
-                />
-                <path
-                  d="M16 12V20"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  className="text-accent-text"
-                />
-              </svg>
-              <div>
-                <div className="text-sm font-bold font-heading tracking-tight text-foreground">
-                  Veyora
-                </div>
-                <div className="text-[10px] uppercase tracking-wider text-muted">
-                  Digital Studio
-                </div>
-              </div>
-            </Link>
-            <p className="text-sm leading-7 text-body">
-              Crafting digital experiences for a smarter tomorrow.
-            </p>
+            <a href="#home" className="logo" aria-label="Veyora home"><svg viewBox="0 0 60 48"><use href="#v"/></svg><span><b>Veyora</b><small>DIGITAL STUDIO</small></span></a>
+            <p className="tg">Crafting digital experiences for a smarter tomorrow.</p>
+            <div className="soc">
+              <a href="#contact" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.200 19.500c.5.100.7-.2.7-.5v-1.800c-2.800.6-3.400-1.200-3.400-1.200-.5-1.200-1.100-1.500-1.100-1.500-.9-.6.1-.6.1-.6 1 .1 1.500 1 1.500 1 .9 1.500 2.400 1.100 3 .8.1-.7.4-1.100.6-1.400-2.200-.3-4.600-1.100-4.600-5 0-1.100.4-2 1-2.700-.1-.3-.4-1.300.1-2.700 0 0 .8-.3 2.800 1a9.600 9.600 0 015 0c1.900-1.300 2.800-1 2.800-1 .5 1.400.2 2.400.1 2.700.6.7 1 1.600 1 2.700 0 3.900-2.400 4.700-4.600 5 .4.3.7.9.7 1.900v2.800c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg></a>
+              <a href="#contact" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3a2 2 0 100 4 2 2 0 000-4zM2.500 9h3v12h-3zM9 9h2.900v1.700c.5-.9 1.700-1.900 3.500-1.900 3.500 0 4.100 2.300 4.100 5.300V21h-3v-6c0-1.400 0-3.200-2-3.200s-2.300 1.500-2.300 3.100V21H9z"/></svg></a>
+              <a href="#contact" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.200a3 3 0 00-2.100-2.100C18 5.600 12 5.600 12 5.600s-6 0-7.900.5A3 3 0 002 8.200C1.500 10 1.500 12 1.500 12s0 2 .5 3.800a3 3 0 002.100 2.100c1.900.5 7.900.5 7.900.5s6 0 7.900-.5a3 3 0 002.100-2.100c.5-1.800.5-3.800.5-3.800s0-2-.5-3.800zM10 15V9l5.200 3z"/></svg></a>
+            </div>
           </div>
-
-          {/* Column 2: Navigate links */}
-          <div>
-            <h3 className="mb-4 text-xs font-semibold font-heading uppercase tracking-wider text-muted">
-              Navigate
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="#"
-                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#services"
-                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#about"
-                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#contact"
-                  className="text-sm text-body hover:text-accent-text transition-colors duration-200"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Contact info */}
-          <div>
-            <h3 className="mb-4 text-xs font-semibold font-heading uppercase tracking-wider text-muted">
-              Contact
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-sm text-body">
-                <span aria-hidden="true">&#9993;</span>
-                info01veyora@gmail.com
-              </li>
-              <li className="flex items-center gap-3 text-sm text-body">
-                <span aria-hidden="true">&#128205;</span>
-                Kathmandu, Nepal
-              </li>
-            </ul>
-          </div>
+          <div><h4>Navigate</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+          <div><h4>Services</h4><ul><li>Web Development</li><li>Mobile Development</li><li>UI/UX Design</li><li>Digital Solutions</li></ul></div>
         </div>
-
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-body">
-          <p>
-            &copy; 2026 Veyora Digital Studio. All rights reserved.
-          </p>
-        </div>
+        <div className="cp"><span>© 2026 Veyora Digital Studio. All rights reserved.</span><span>Kathmandu, Nepal</span></div>
       </div>
     </footer>
   );
