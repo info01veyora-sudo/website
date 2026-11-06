@@ -101,10 +101,11 @@ section{position:relative}
 .hd p{margin:0;color:var(--ink);font-size:17px}
 
 /* services */
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.svc{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 26px 30px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;box-shadow:0 1px 2px rgba(16,24,40,.04)}
-.svc::before{content:"";position:absolute;inset:0;background:radial-gradient(260px 160px at 100% 0,var(--g),transparent 70%);opacity:.7;pointer-events:none}
-.svc:hover{transform:translateY(-6px);box-shadow:0 24px 44px -18px rgba(16,24,40,.22);border-color:#cfd9f6}
+.g4{display:flex;overflow-x:auto;gap:22px;padding:12px 24px 28px;scrollbar-width:none;-ms-overflow-style:none}
+.g4::-webkit-scrollbar{display:none}
+.svc{flex:0 0 auto;width:300px;position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 26px 30px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;box-shadow:0 1px 2px rgba(16,24,40,.04);cursor:pointer}
+.svc::before{content:"";position:absolute;inset:-10%;border-radius:inherit;background:radial-gradient(260px 160px at 100% 0,var(--g),transparent 70%);opacity:.6;pointer-events:none}
+.svc:hover{box-shadow:0 18px 36px -16px rgba(16,24,40,.18);border-color:#cfd9f6;z-index:1}
 .ic{position:relative;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;margin-bottom:22px;color:#fff;box-shadow:0 10px 20px -8px var(--s)}
 .ic svg{width:26px;height:26px}
 .svc h3{position:relative;font-size:19px;font-weight:700;margin-bottom:8px;letter-spacing:-.015em}
@@ -170,9 +171,14 @@ footer ul a:hover{color:#fff}
 
 @media(max-width:1020px){
   .hg,.ag,.panel{grid-template-columns:1fr}
-  .g4{grid-template-columns:repeat(2,1fr)}
   .panel{padding:44px 32px}
   .ft{grid-template-columns:1fr 1fr}.ft>div:first-child{grid-column:1/-1}
+  .g4{padding:0 4px 20px}
+  .svc{width:270px}
+}
+@media(max-width:600px){
+  .g4{padding:0 2px 16px}
+  .svc{width:260px}
 }
 @media(max-width:820px){
   .burger{display:block}
