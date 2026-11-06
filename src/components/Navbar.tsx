@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const LINKS = [
   { id: "home", label: "Home" },
@@ -80,21 +81,25 @@ export function Navbar() {
             <li className="mcta"><a className="btn btn-p" href="#contact">Get in Touch</a></li>
           </ul>
 
-          <a className="btn btn-p btn-s" href="#contact">
-            Get in Touch
-          </a>
+          <div className="nav-actions">
+            <ThemeToggle />
 
-          <button
-            className="burger"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="menu"
-            onClick={() => setOpen((o) => !o)}
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-          </button>
+            <a className="btn btn-p btn-s" href="#contact">
+              Get in Touch
+            </a>
+
+            <button
+              className="burger"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="menu"
+              onClick={() => setOpen((o) => !o)}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
         </nav>
       </div>
     </header>
