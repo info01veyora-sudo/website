@@ -4,7 +4,7 @@ export function Footer() {
       <div className="wrap">
         <div className="ft">
           <div>
-            <a href="#home" className="logo" aria-label="Veyora home"><svg viewBox="0 0 60 48"><use href="#v"/></svg><span><b>Veyora</b><small>DIGITAL STUDIO</small></span></a>
+            <a href="#home" className="logo" aria-label="Veyora home"><img src="/images/logo.png" alt="Veyora" width="40" height="32" /><span><b>Veyora</b><small>DIGITAL STUDIO</small></span></a>
             <p className="tg">Crafting digital experiences for a smarter tomorrow.</p>
             <div className="soc">
               <a href="#contact" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.200 19.500c.5.100.7-.2.7-.5v-1.800c-2.800.6-3.400-1.200-3.400-1.200-.5-1.200-1.100-1.500-1.100-1.500-.9-.6.1-.6.1-.6 1 .1 1.500 1 1.500 1 .9 1.500 2.400 1.100 3 .8.1-.7.4-1.100.6-1.400-2.200-.3-4.600-1.100-4.600-5 0-1.100.4-2 1-2.700-.1-.3-.4-1.300.1-2.700 0 0 .8-.3 2.800 1a9.600 9.600 0 015 0c1.900-1.300 2.800-1 2.800-1 .5 1.400.2 2.400.1 2.700.6.7 1 1.600 1 2.700 0 3.900-2.400 4.700-4.600 5 .4.3.7.9.7 1.900v2.800c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg></a>

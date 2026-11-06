@@ -51,9 +51,10 @@ export function Navbar() {
   return (
     <header>
       <div className="wrap">
-        <nav className="nav" aria-label="Main">
+        <nav className="nav liquid" aria-label="Main">
+          <div className="liq" aria-hidden="true" />
           <a href="#home" onClick={goHome} className="logo" aria-label="Veyora Digital Studio home">
-            <svg viewBox="0 0 60 48"><use href="#v" /></svg>
+            <img src="/images/logo.png" alt="Veyora" width="40" height="32" />
             <span><b>Veyora</b><small>DIGITAL STUDIO</small></span>
           </a>
 
@@ -80,7 +81,7 @@ export function Navbar() {
           </ul>
 
           <a className="btn btn-p btn-s" href="#contact">
-            Get in Touch <svg className="ar"><use href="#ar" /></svg>
+            Get in Touch
           </a>
 
           <button

@@ -76,7 +76,7 @@ export function ContactForm({ onSubmit = sendContactEmail }: Props) {
       )}
 
       <button className="btn btn-p" type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Send message"} <svg className="ar"><use href="#ar" /></svg>
+        {status === "loading" ? "Sending…" : "Send message"}
       </button>
 
       <div className="ok" role="status">
