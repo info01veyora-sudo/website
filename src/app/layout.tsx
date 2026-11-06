@@ -84,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/images/logo.png" sizes="any" type="image/png" />
         <link rel="shortcut icon" href="/images/logo.png" type="image/png" />
